@@ -11,7 +11,7 @@ var DepartmentSchema = new Schema(
 
 // Virtual for Department's full name
 DepartmentSchema
-.virtual('Departmentdetails')
+.virtual('departmentDetails')
 .get(function () {
   return ('Department Code:'+this._id + ' Department Name:' + this.department_name);
 });

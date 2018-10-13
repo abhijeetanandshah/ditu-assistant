@@ -12,7 +12,7 @@ var SubjectSchema = new Schema(
 
 // Virtual for Subject's full name
 SubjectSchema
-.virtual('subjectdetails')
+.virtual('subjectDetails')
 .get(function () {
   return ('Subject Code:'+this._subjectCode + ' Subject Name:' + this.subject_name + ' Departments:'+ this.department.get('dept_name'));
 });

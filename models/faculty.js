@@ -7,8 +7,8 @@ var FacultySchema = new Schema(
     _id:{type:number,required:true,minlength:10,maxlength:10,unique:true},
     first_name: {type: String, required: true, max: 100},
     last_name: {type: String, required: true, max: 100},
-    password: {type:password,required:true, default : FacultySchema.passwordfn },
-    date_of_birth: {type: Date},
+    password: {type:password, required:true, default : FacultySchema.passwordfn },
+    date_of_birth: {type: Date, required:true},
     department : {type:Schema.Types.ObjectId, ref: 'Department', required: true},
     subjects: [{type:Schema.Types.ObjectId, ref:'Subject', required:true}]
   }
