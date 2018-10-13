@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 var DepartmentSchema = new Schema(
   {
     _id:{type:String, required:true, max:10, unique:true},
-    department_name: [{type: String, required: true, max: 100}]
+    department_name: {type: String, required: true, max: 100},
+    department_description: {type: String, max:100}
   }
 );
 
@@ -13,7 +14,7 @@ var DepartmentSchema = new Schema(
 DepartmentSchema
 .virtual('departmentDetails')
 .get(function () {
-  return ('Department Code:'+this._id + ' Department Name:' + this.department_name);
+  return ('Department Code:'+this._id + ' Department Name:' + this.department_name + ' Department Description:' + this.department_description);
 });
 
 // Virtual for Department's URL
