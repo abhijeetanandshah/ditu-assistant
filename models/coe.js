@@ -2,26 +2,26 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var DepartmentSchema = new Schema(
+var COESchema = new Schema(
   {
     _id:{type:String, required:true, max:10, unique:true},
-    department_name: [{type: String, required: true, max: 100}]
+    COE_name: [{type: String, required: true, max: 100}]
   }
 );
 
-// Virtual for Department's full name
-DepartmentSchema
-.virtual('Departmentdetails')
+// Virtual for COE's full name
+COESchema
+.virtual('COEdetails')
 .get(function () {
-  return ('Department Code:'+this._id + ' Department Name:' + this.department_name);
+  return ('COE Code:'+this._id + ' COE Name:' + this.COE_name);
 });
 
-// Virtual for Department's URL
-DepartmentSchema
+// Virtual for COE's URL
+COESchema
 .virtual('url')
 .get(function () {
-  return '/department/' + this._id;
+  return '/coe/' + this._id;
 });
 
 //Export model
-module.exports = mongoose.model('Department', DepartmentSchema);
+module.exports = mongoose.model('COE', COESchema);
