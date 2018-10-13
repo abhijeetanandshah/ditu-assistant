@@ -1,11 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <title>DITU ASSISTANT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
+
 <body>
-    {% block content %}
-    {% endblock %}
+    <div class="page-header">
+    <h1><img src="https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2018-06-17/382470225616_a3c3786927df6c0691e9_96.png"/><a href="#">   DITU ASSISTANT</a></h1>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-2">
+                <ul class="sidebar-nav">
+                    <li> <a href="/ditu">Home</a></li>
+                    <li> <a href="/ditu/books">All books</a></li>
+                    <li> <a href="/ditu/authors">All authors</a></li>
+                    <li> <a href="/ditu/genres">All genres</a></li>
+                    <li> <a href="/ditu/bookinstances">All book-instances</a></li>
+                    <hr>
+                    <li> <a href="/ditu/author/create">Create new author</a></li>
+                    <li> <a href="/ditu/genre/create">Create new genre</a></li>
+                    <li> <a href="/ditu/book/create">Create new book</a></li>
+                    <li> <a href="/ditu/bookinstance/create">Create new book instance</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-10">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>

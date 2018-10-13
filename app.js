@@ -10,11 +10,13 @@ var bodyParser = require('body-parser');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var dituRouter = require('./routes/ditu');
 
 var app = express();
 
 //Set up default mongoose connection
-var mongoDB ="mongodb://127.0.0.1:27017/ditu-assistant";
+//var mongoDB ="mongodb://127.0.0.1:27017/ditu-assistant";
+var mongoDB ="mongodb://abhijeet.anand99:ditu2018@ds131753.mlab.com:31753/ditu-assistant";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
@@ -34,9 +36,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/ditu', dituRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
