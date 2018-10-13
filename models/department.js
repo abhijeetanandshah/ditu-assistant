@@ -10,7 +10,7 @@ var DepartmentSchema = new Schema(
   }
 );
 
-// Virtual for Department's full name
+// Virtual for Department's Detail
 DepartmentSchema
 .virtual('departmentDetails')
 .get(function () {

@@ -6,9 +6,10 @@ var SubjectSchema = new Schema(
   {
     _id:{type:String, required:true, max:10, unique:true},
     subject_name: {type: String, required: true, max: 100},
-    department : [{type:Schema.Types.ObjectId , ref:'Department', required: true}]
+    department : [{type:String , ref:'Department', required: true}]
   }
 );
+//  note ** Schema uses string as id instead of default objectId of mongodb;
 
 // Virtual for Subject's full name
 SubjectSchema
