@@ -1,43 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<html class="no-js" lang="en">
 <head>
-    <title>DITU ASSISTANT</title>
+
+    <!--- basic page needs
+    ================================================== -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DITU ASSISTANT</title>
+    <meta name="description" content="Question Paper Builder">
+    <meta name="author" content="Abhijeet Anand Shah">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
+    <link rel="stylesheet" href="stylesheets/base.css">
+    <link rel="stylesheet" href="stylesheets/vendor.css">
+    <link rel="stylesheet" href="stylesheets/main.css">
+
+    <!-- script
+    ================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <script src="javascripts/modernizr.js"></script>
+    <script src="javascripts/pace.min.js"></script>
+
 </head>
 
-<body>
-    <div class="page-header">
-    <h1><img src="https://slack-files2.s3-us-west-2.amazonaws.com/avatars/2018-06-17/382470225616_a3c3786927df6c0691e9_96.png"/><a href="#">   DITU ASSISTANT</a></h1>
-    </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2">
-                <ul class="sidebar-nav">
-                    <li> <a href="/ditu">Home</a></li>
-                    <li> <a href="/ditu/books">All books</a></li>
-                    <li> <a href="/ditu/authors">All authors</a></li>
-                    <li> <a href="/ditu/genres">All genres</a></li>
-                    <li> <a href="/ditu/bookinstances">All book-instances</a></li>
-                    <hr>
-                    <li> <a href="/ditu/author/create">Create new author</a></li>
-                    <li> <a href="/ditu/genre/create">Create new genre</a></li>
-                    <li> <a href="/ditu/book/create">Create new book</a></li>
-                    <li> <a href="/ditu/bookinstance/create">Create new book instance</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-10">
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home" style="min-height:190px;padding-top:20px">
+        <header class="header" style="top:2px;">
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="#">
+                        <h1 style="color:white;"><img src="https://www.static-contents.youth4work.com/university/Documents/Colleges/CollegeBanner/fc661c16-4c5e-49e0-92b7-9ae2be372a6c.png" alt="Homepage" style="height:8%;width:8%;"> DITU ASSISTANT</h1>
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <ul class="header__social">
+                    <li>
+                        <a href="https://www.facebook.com/abhijeet.anandshah/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/nineleaps?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/abhijeet.anandshah/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                    </li>
+                </ul> <!-- end header__social -->
+
+                <a class="header__search-trigger" href="#0"></a>
+
+                <div class="header__search">
+
+                    <form role="search" method="get" class="header__search-form" action="#">
+                        <label>
+                            <span class="hide-content">Search for:</span>
+                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
+                        </label>
+                        <input type="submit" class="search-submit" value="Search">
+                    </form>
+
+                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
+
+                </div>  <!-- end header__search -->
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap" style="margin-top: 5px;padding: 5px;">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav" style="padding:0;margin-top:0px;">
+                        <li class="current" style="float:left;"><a href="#" title="">Home</a></li>
+                        <li class="has-children" style="float:left;">
+                            <a href="#0" title="">Features</a>
+                            {% if user.is_authenticated %}  
+                            <ul class="sub-menu" style="margin:0px;padding: 2px;">
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">COE</a></li>
+                            </ul>
+                            {% endif %}
+                        </li>
+                        <li style="float:left;"><a href="#" title="">Contact</a></li>
+                        {% if user.is_authenticated %} 
+                        <li style="float:right;"><a href="#">Logout</a></li>
+                        <li style="float:right;"><a href="#">Register</a></li>
+                        {% endif %}
+                    </ul> <!-- end header__nav -->
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content">
+        {% if not user.is_authenticated %}
+        <button class="btn--primary" style="width:30%;font-size:13px;display:block; margin-left: auto;margin-right: auto;padding:3px;"><a href="http://0.0.0.0:8000/admin/login/?next=/admin/" style="color:white;">Login</a></button><br/>
+        {% else %}
                 {% block content %}
                 {% endblock %}
+                <!-- end article -->
+        {% endif %}
+    </section> <!-- s-content -->
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__main">
+            <div class="row">
+                
+                <div class="col-two md-four mob-full s-footer__sitelinks">
+                    <h4>Quick Links</h4>
+                    <ul class="s-footer__linklist">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__sitelinks -->
+
+
+                <div class="col-five md-full mob-full end s-footer__social">
+                        
+                    <h4>Social</h4>
+
+                    <ul class="s-footer__linklist">
+                        <li><a href="https://www.facebook.com/nineleaps/">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/nineleaps_tech/">Instagram</a></li>
+                        <li><a href="https://twitter.com/nineleaps?lang=en">Twitter</a></li>
+                        <li><a href="https://plus.google.com/+Nineleaps/">Google+</a></li>
+                        <li><a href="https://in.linkedin.com/company/nineleaps-technology-solutions-pvt-ltd-/">LinkedIn</a></li>
+                    </ul>
+
+                </div> <!-- end s-footer__social -->
+
+            </div>
+        </div> <!-- end s-footer__main -->
+
+        <div class="s-footer__bottom">
+            <div class="row">
+                <div class="col-full">
+                    <div class="s-footer__copyright">
+                        <span>© Copyright Nineleaps Technologies 2018</span>
+                        <span>Developed By: <a href="https://www.linkedin.com/in/abhijeet-anand-shah-aba29535/">Abhijeet Anand Shah</a></span>
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="javascripts/jquery-3.2.1.min.js"></script>
+    <script src="javascripts/plugins.js"></script>
+    <script src="javascripts/main.js"></script>
+
 </body>
+
 </html>
