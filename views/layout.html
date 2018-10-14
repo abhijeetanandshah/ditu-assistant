@@ -17,17 +17,17 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <link href='https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <!-- <link rel="stylesheet" href="/stylesheets/style.css"> -->
-    <link rel="stylesheet" href="stylesheets/base.css">
-    <link rel="stylesheet" href="stylesheets/vendor.css">
-    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/vendor.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
 
     <!-- script
     ================================================== -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="javascripts/modernizr.js"></script>
-    <script src="javascripts/pace.min.js"></script>
+    <script src="/javascripts/modernizr.js"></script>
+    <script src="/javascripts/pace.min.js"></script>
 
 </head>
 
@@ -80,7 +80,7 @@
                     <h2 class="header__nav-heading h6">Site Navigation</h2>
 
                     <ul class="header__nav" style="padding:0;margin-top:0px;">
-                        <li class="current" style="float:left;"><a href="#" title="">Home</a></li>
+                        <li class="current" style="float:left;"><a href="/" title="">Home</a></li>
                         <li class="has-children" style="float:left;">
                             <a href="#0" title="">Features</a>
                             {% if user.is_authenticated %}  
@@ -92,6 +92,7 @@
                             {% endif %}
                         </li>
                         <li style="float:left;"><a href="#" title="">Contact</a></li>
+                        <li style="float:left;"><a href="/ditu/question" title="">Question</a></li>
                         {% if user.is_authenticated %} 
                         <li style="float:right;"><a href="#">Logout</a></li>
                         <li style="float:right;"><a href="#">Register</a></li>
@@ -108,13 +109,13 @@
     <!-- s-content
     ================================================== -->
     <section class="s-content">
-        {% if not user.is_authenticated %}
-        <button class="btn--primary" style="width:30%;font-size:13px;display:block; margin-left: auto;margin-right: auto;padding:3px;"><a href="http://0.0.0.0:8000/admin/login/?next=/admin/" style="color:white;">Login</a></button><br/>
-        {% else %}
+        
+        <!-- <button class="btn--primary" style="width:30%;font-size:13px;display:block; margin-left: auto;margin-right: auto;padding:3px;"><a href="http://0.0.0.0:8000/admin/login/?next=/admin/" style="color:white;">Login</a></button><br/> -->
+        
                 {% block content %}
                 {% endblock %}
                 <!-- end article -->
-        {% endif %}
+        
     </section> <!-- s-content -->
 
     <!-- s-footer
@@ -184,9 +185,9 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="javascripts/jquery-3.2.1.min.js"></script>
-    <script src="javascripts/plugins.js"></script>
-    <script src="javascripts/main.js"></script>
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/plugins.js"></script>
+    <script src="/javascripts/main.js"></script>
 
 </body>
 
