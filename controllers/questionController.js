@@ -6,12 +6,6 @@ var db = mongoose.connection;
 
 // Display list of all Questions.
 exports.question_list = function(req, res) {
-    // async.parallel({questions_count : function(callback){
-    //     question.countDocuments({},callback);
-    // }},function(err,results){
-    //     res.render('question',{error:err, data:results});
-    //     console.log("No. of questions : "+results.questions_count);
-    // });
     db.collection('question').find({}).count((err, docs)=>{
         res.render('question',{'error':err,'data':docs});
         console.log("No. of questions : "+ docs);

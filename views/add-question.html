@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="/" method="POST">
+    <fieldset>
+        Question : <input type="text" name="question_text" placeholder="Type your Question here..."/><br/>
+        <select name="marks_tag">
+            <option value="2.5">2.5</option>
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="Undefined">Undefined</option>
+        </select>
+        <select name="type_tag">
+            <option value="Numerical">Numerical</option>
+            <option value="Theoretical">Theoretical</option>
+            <option value="Undefined">Undefined</option>
+        </select>
+        <select name="subject">
+            {% for subject in subjects %}
+                <option value="{{ item }}">{{ item }}</option>
+            {% end for %}
+        </select>
+        <input type="submit" value="Submit">
+    </fieldset>
+</form>
+
+{% endblock %}
