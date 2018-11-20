@@ -11,7 +11,7 @@ var QuestionSchema = new Schema (
     }
 )
 //     ** id is taken by default
-//     *** chapter tag for future, as cahpter values are not predefined 
+//     *** chapter tag for future, as chapter values are not predefined 
 
 //   Virtual function for Question's Detail 
 QuestionSchema

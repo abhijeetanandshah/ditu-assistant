@@ -95,17 +95,45 @@ div#LoginForm{
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
 
-#expend {
+#expend1 {
   display:none;  
 }
 
-#expend + .smalldesc {
+#expend1 + .smalldesc {
   max-height:52px;
   overflow:hidden;
   transition:all .3s ease;
 }
 
-#expend:checked + .smalldesc {
+#expend1:checked + .smalldesc {
+  max-height:250px;  
+}
+
+#expend2 {
+  display:none;  
+}
+
+#expend2 + .smalldesc {
+  max-height:52px;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+#expend2:checked + .smalldesc {
+  max-height:250px;  
+}
+
+#expend3 {
+  display:none;  
+}
+
+#expend3 + .smalldesc {
+  max-height:52px;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+#expend3:checked + .smalldesc {
   max-height:250px;  
 }
 

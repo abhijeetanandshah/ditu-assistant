@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var DepartmentSchema = new Schema(
   {
-    _id:{type:String, required:true, max:10, unique:true},
+    department_code:{type:String, required:true, max:10, unique:true},
     department_name: {type: String, required: true, max: 100},
     department_description: {type: String, max:100}
   }
