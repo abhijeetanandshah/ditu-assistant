@@ -3,10 +3,11 @@ var app = require('../app');
 var mongoose= require('mongoose');
 var async = require('async');
 var db = mongoose.connection;
+var Question = mongoose.model('Question');
 
 // Display list of all Questions.
 exports.question_list = function(req, res) {
-    db.collection('question').find({}).count((err, docs)=>{
+    db.collection('questions').find({}).count((err, docs)=>{
         res.render('question',{'error':err,'data':docs});
         console.log("No. of questions : "+ docs);
     });
@@ -19,15 +20,27 @@ exports.question_detail = function(req, res) {
 
 // Display Question create form on GET.
 exports.question_create_get = function(req, res) {
-    db.collection('subject').find({}).toArray((err,docs)=>{
+    db.collection('subjects').find({}).toArray((err,docs)=>{
         res.render('add-question',{'subjects':docs});
         console.log("Subject Count : "+ docs);
     });
 };
 
 // Handle Question create on POST.
-exports.question_create_post = function(req, res) {
-    res.send('NOT IMPLEMENTED: Question create POST');
+exports.question_create_post = function(req, res, next) {
+    var question = new Question(
+        {
+            question_text :  req.body.question_text,
+            marks_tag : req.body.marks_tag,
+            type_tag : req.body.type_tag,
+            subject : req.body.subject
+        }
+    );
+    console.log(question);
+    question.save(function(err){
+        if(err){ return next(err); }
+        res.redirect("/ditu/question");
+    });
 };
 
 // Display Question delete form on GET.

@@ -36,7 +36,7 @@ var question_controller = require('../controllers/questionController');
 // // GET request for list of all Book items.
 // router.get('/books', book_controller.book_list);
 
-/// AUTHOR ROUTES ///
+/// QUESTION ROUTES ///
 
 // GET home page.
 router.get('/', exports.index = function(req, res) {

@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var SubjectSchema = new Schema(
   {
-    _id:{type:String, required:true, max:10, unique:true},
+    subject_code:{type:String, required:true, max:10, unique:true},
     subject_name: {type: String, required: true, max: 100},
     department : [{type:String , ref:'Department', required: true}]
   }
@@ -15,14 +15,14 @@ var SubjectSchema = new Schema(
 SubjectSchema
 .virtual('subjectDetails')
 .get(function () {
-  return ('Subject Code:'+this._subjectCode + ' Subject Name:' + this.subject_name + ' Departments:'+ this.department.get('dept_name'));
+  return ('Subject Code:'+this.subject_code + ' Subject Name:' + this.subject_name + ' Departments:'+ this.department.get('dept_name'));
 });
 
 // Virtual for Subject's URL
 SubjectSchema
 .virtual('url')
 .get(function () {
-  return '/subject/' + this._subjectCode;
+  return '/subject/' + this._id;
 });
 
 //Export model

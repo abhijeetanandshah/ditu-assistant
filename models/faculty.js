@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var FacultySchema = new Schema(
   {
-    _id:{type:number,required:true,minlength:10,maxlength:10,unique:true},
+    sap_id:{type:number,required:true,minlength:10,maxlength:10,unique:true},
     first_name: {type: String, required: true, max: 100},
     last_name: {type: String, required: true, max: 100},
     password: {type:password, required:true, default : FacultySchema.passwordfn },
