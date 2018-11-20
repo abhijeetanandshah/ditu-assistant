@@ -1,10 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Welcome to DITU ASSISTANT</h2>
+<h2>WELCOME to DITU ASSISTANT</h2>
 
 <ul>
-    <li>Questions:{{ data }}</li>
+    <li>Questions : {{ data }}</li>
 </ul>
+
+<button class="btn btn-primary"><a href="/ditu/question/create" title="">Add Question</a></button>
 
 {% endblock %}

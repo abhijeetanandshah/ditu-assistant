@@ -4,11 +4,11 @@ var router = express.Router();
 // Require controller modules.
 var department_controller = require('../controllers/departmentController');
 var question_controller = require('../controllers/questionController');
+var faculty_controller = require('../controllers/facultyController');
 //var genre_controller = require('../controllers/genreController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
 
 /// DEPARTMENT ROUTES ///
-
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
 router.get('/department/create', department_controller.department_create_get);
@@ -34,7 +34,7 @@ router.get('/department/:id', department_controller.department_detail);
 // GET request for list of all department.
 router.get('/department', department_controller.department_list);
 
-/// AUTHOR ROUTES ///
+/// QUESTION ROUTES ///
 
 // GET home page.
 router.get('/', exports.index = function(req, res) {
@@ -65,6 +65,14 @@ router.get('/question/:id', question_controller.question_detail);
 
 // GET request for list of all Authors.
 router.get('/question', question_controller.question_list);
+
+/// FACULTY ROUTES ///
+
+//GET request to register user
+router.get('/register', faculty_controller.faculty_register_get);
+
+//POST request to Pass faculty value
+router.post('/register', faculty_controller.faculty_register_post);
 
 /// GENRE ROUTES ///
 
