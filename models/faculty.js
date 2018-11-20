@@ -4,13 +4,13 @@ var Schema = mongoose.Schema;
 
 var FacultySchema = new Schema(
   {
-    _id:{type:number,required:true,minlength:10,maxlength:10,unique:true},
+    sap_id:{type:String,required:true,minlength:10,maxlength:10,unique:true},
     first_name: {type: String, required: true, max: 100},
     last_name: {type: String, required: true, max: 100},
-    password: {type:password, required:true, default : FacultySchema.passwordfn },
+    password: {type:String, required:true},
     date_of_birth: {type: Date, required:true},
-    department : {type:Schema.Types.ObjectId, ref: 'Department', required: true},
-    subjects: [{type:Schema.Types.ObjectId, ref:'Subject', required:true}]
+    //department : {type:Schema.Types.ObjectId, ref: 'Department', required: true},
+    subjects: [{type:String, ref:'Subject', required:true}]
   }
 );
 

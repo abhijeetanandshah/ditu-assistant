@@ -4,12 +4,13 @@ var router = express.Router();
 // Require controller modules.
 //var book_controller = require('../controllers/bookController');
 var question_controller = require('../controllers/questionController');
+var faculty_controller = require('../controllers/facultyController');
 //var genre_controller = require('../controllers/genreController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
 
 /// BOOK ROUTES ///
 
-// GET catalog home page.
+// GET catalog home page
 // router.get('/', book_controller.index);
 
 // // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
@@ -67,6 +68,14 @@ router.get('/question/:id', question_controller.question_detail);
 
 // GET request for list of all Authors.
 router.get('/question', question_controller.question_list);
+
+/// FACULTY ROUTES ///
+
+//GET request to register user
+router.get('/register', faculty_controller.faculty_register_get);
+
+//POST request to Pass faculty value
+router.post('/register', faculty_controller.faculty_register_post);
 
 /// GENRE ROUTES ///
 
