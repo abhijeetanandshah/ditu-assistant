@@ -18,8 +18,8 @@
         </select>
         <select name="subject">
             {% for subject in subjects %}
-                <option value="{{ item }}">{{ item }}</option>
-            {% end for %}
+                <option value="{{ subject._id }}">{{ subject.subject_name }}</option>
+            {% endfor %}
         </select>
         <input type="submit" value="Submit">
     </fieldset>

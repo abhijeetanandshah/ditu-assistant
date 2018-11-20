@@ -19,7 +19,10 @@ exports.question_detail = function(req, res) {
 
 // Display Question create form on GET.
 exports.question_create_get = function(req, res) {
-    res.send('NOT IMPLEMENTED: Question create GET');
+    db.collection('subject').find({}).toArray((err,docs)=>{
+        res.render('add-question',{'subjects':docs});
+        console.log("Subject Count : "+ docs);
+    });
 };
 
 // Handle Question create on POST.
