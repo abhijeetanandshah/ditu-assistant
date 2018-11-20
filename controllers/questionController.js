@@ -6,7 +6,7 @@ var db = mongoose.connection;
 
 // Display list of all Questions.
 exports.question_list = function(req, res) {
-    db.collection('question').find({}).count((err, docs)=>{
+    db.collection('questions').find({}).count((err, docs)=>{
         res.render('question',{'error':err,'data':docs});
         console.log("No. of questions : "+ docs);
     });
@@ -19,7 +19,7 @@ exports.question_detail = function(req, res) {
 
 // Display Question create form on GET.
 exports.question_create_get = function(req, res) {
-    db.collection('subject').find({}).toArray((err,docs)=>{
+    db.collection('subjects').find({}).toArray((err,docs)=>{
         res.render('add-question',{'subjects':docs});
         console.log("Subject Count : "+ docs);
     });
