@@ -1,5 +1,75 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2 style="text-align: center;">Welcome to DITU ASSISTANT</h2>
+
+<div id="LoginForm">
+    
+    <h2 style="text-align: center;">Welcome to DITU ASSISTANT</h2>
+    
+    <div class="container">
+        <div class="login-form">
+            <div class="main-div" style="float:left;">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please Enter your Email and Password</p>
+                </div>
+                <div class="service-1 click1">
+                    <div class="row">
+                    <input type="checkbox" id="expend" />
+                    <div class="medium-12 small-12 columns smalldesc">
+                        <form id="Login">
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                            <div class="forgot">
+                                <a href="reset.html">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                    <label for="expend"><img src="../public/images/icons/png/icon-arrow-down.png"></label>
+            </div></div></div>
+            <div class="main-div" style="display: inline-block;">
+                <div class="panel">
+                    <h2>Student Login</h2>
+                    <p>Please Enter your Email and Password</p>
+                </div>
+                <form id="Login">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="forgot">
+                        <a href="reset.html">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+            <div class="main-div" style="float:right;">
+                <div class="panel">
+                    <h2>COE Login</h2>
+                    <p>Please Enter your Email and Password</p>
+                </div>
+                <form id="Login">
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <div class="forgot">
+                        <a href="reset.html">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% endblock %}
