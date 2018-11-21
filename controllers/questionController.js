@@ -6,10 +6,16 @@ var db = mongoose.connection;
 var Question = mongoose.model('Question');
 
 // Display list of all Questions.
-exports.question_list = function(req, res) {
-    db.collection('questions').find({}).count((err, docs)=>{
-        res.render('question',{'error':err,'data':docs});
-        console.log("No. of questions : "+ docs);
+exports.question_home = function(req, res) {
+    db.collection('questions').find({}).toArray((err, docs)=>{
+        res.render('question',{'error':err,'data':docs.length});
+        console.log("No. of questions : "+ docs.length);
+    });
+};
+
+exports.question_view_all = function(req, res) {
+    db.collection('questions').find({}).toArray((err, docs)=>{
+        res.render('question-all',{'error':err,'data':docs});
     });
 };
 

@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="margin-left: 15px;">
+    <h2>Questions</h2>
+
+    <h4 style="text-align: left;">2.5 marks :</h4>
+    <ul>
+    {% for question in data %}
+    {% if question.marks_tag==2.5 %}
+    <li>{{ question.question_text }}</li>
+    {% endif %}
+    {% endfor %}
+    </ul>
+    <h4 style="text-align: left;">5 marks :</h4>
+    <ul>
+        {% for question in data %}
+        {% if question.marks_tag==5 %}
+        <li>{{ question.question_text }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <h4 style="text-align: left;">10 marks :</h4>
+    <ul>
+        {% for question in data %}
+        {% if question.marks_tag==10 %}
+        <li>{{ question.question_text }}</li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+      
+{% endblock %}

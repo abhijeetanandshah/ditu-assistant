@@ -47,6 +47,9 @@ router.get('/', exports.index = function(req, res) {
 // GET request for creating Author. NOTE This must come before route for id (i.e. display author).
 router.get('/question/create', question_controller.question_create_get);
 
+// GET request for list of all Authors.
+router.get('/question/view', question_controller.question_view_all);
+
 // POST request for creating Author.
 router.post('/question/create', question_controller.question_create_post);
 
@@ -66,7 +69,7 @@ router.post('/question/:id/update', question_controller.question_update_post);
 router.get('/question/:id', question_controller.question_detail);
 
 // GET request for list of all Authors.
-router.get('/question', question_controller.question_list);
+router.get('/question', question_controller.question_home);
 
 /// GENRE ROUTES ///
 
