@@ -2,27 +2,45 @@
 
 {% block content %}
 
-<form action="" method="post">
-    <fieldset>
-        Question : <textarea name="question_text" style="width:500px; height:200px" placeholder="Type your Question here..."></textarea><br/>
-        <select name="marks_tag">
-            <option value="2.5">2.5</option>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="Undefined">Undefined</option>
-        </select>
-        <select name="type_tag">
-            <option value="Numerical">Numerical</option>
-            <option value="Theoretical">Theoretical</option>
-            <option value="Undefined">Undefined</option>
-        </select>
-        <select name="subject">
-            {% for subject in subjects %}
-                <option value="{{ subject._id }}">{{ subject.subject_name }}</option>
-            {% endfor %}
-        </select>
-        <input type="submit" value="Submit">
-    </fieldset>
-</form>
+<div class="container" style="display: inline;">
+<div class="main-div-question">
+    <div class="panel">
+        <h1>Add Question</h1>    
+    </div>
+    <div class="row">
+        <form action="" method="post">
+            <fieldset>
+                Marks Tag : <select name="marks_tag" class="form-control" required>
+                    <option value="" disabled selected>Select...</option>
+                    <option value="2.5">2.5</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="Undefined">Undefined</option>
+                </select>
+                Type Tag : <select name="type_tag" class="form-control" required>
+                    <option value="" disabled selected>Select...</option>
+                    <option value="Numerical">Numerical</option>
+                    <option value="Theoretical">Theoretical</option>
+                    <option value="Undefined">Undefined</option>
+                </select>
+                Subject : <select name="subject" class="form-control" required>
+                        <option value="" disabled selected>Select...</option>
+                    {% for subject in subjects %}
+                        <option value="{{ subject.subject_code }}">{{ subject.subject_name }}</option>
+                    {% endfor %}
+                </select>
+                Question : <textarea name="question_text" style="width:400px;" class="form-control" placeholder="Type your Question here..." required></textarea>
+                <br/><br/>
+                <button class="btn btn-primary" type="submit" value="Submit">Save</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+CKEDITOR.replace('question_text',{
+    plugins: 'wysiwygarea,toolbar,basicstyles,link,specialchar,image,list'
+});
+</script>
 
 {% endblock %}
