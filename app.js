@@ -7,12 +7,37 @@ var cons = require('consolidate');
 var logger = require('morgan');
 var mongoose= require('mongoose');
 var bodyParser = require('body-parser');
+const passport = require('passport');
+var methodOverride = require('method-override');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var dituRouter = require('./routes/ditu');
 
+//Passport config
+
+
+
 var app = express();
+
+require('./config/passport.js')(passport);
+
+app.use(methodOverride('_method'))
+
+app.use(session({
+    secret: 'secure',
+    resave: true,
+    saveUninitialized: true,
+  }))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+
+
+
 
 //Set up default mongoose connection
 // var mongoDB ="mongodb://127.0.0.1:27017/ditu-assistant";
@@ -42,6 +67,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ditu', dituRouter);
 
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
@@ -56,6 +83,17 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+
+//Global Variables
+app.use(function(req, res, next){
+    if(user){
+    console.log(user+"hellllllo");
+    res.locals.user = req.user;
+    }else{
+        res.locals.user =null;  
+    }
+    next();
 });
 
 module.exports = app;

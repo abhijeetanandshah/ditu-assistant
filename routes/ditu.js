@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 
 // Require controller modules.
 //var book_controller = require('../controllers/bookController');
@@ -76,6 +77,13 @@ router.get('/register', faculty_controller.faculty_register_get);
 
 //POST request to Pass faculty value
 router.post('/register', faculty_controller.faculty_register_post);
+
+//POST req for user login
+router.post('/login', faculty_controller.faculty_login_post);
+
+//GET req for LogOut
+router.get('/logout', faculty_controller.faculty_logout_get);
+
 
 /// GENRE ROUTES ///
 
