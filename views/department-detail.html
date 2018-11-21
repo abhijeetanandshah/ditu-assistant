@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <h2>{{department_detail.name}}</h2>
+        <!-- formatting required -->
+        <p>{{department_detail.description}}</p>
+
+        <!-- add button later -->
+        <p><a href="/ditu/department/create">Create Department</a></p>
+        <p><a href="{{department_detail.url}}/delete">Delete Department</a></p>
+        <p><a href="{{department_detail.url}}/update">Update Department</a></p>
+
+    </div>
+</div>
+
+
+{% endblock %}

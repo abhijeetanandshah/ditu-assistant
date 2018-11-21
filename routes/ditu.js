@@ -2,39 +2,37 @@ var express = require('express');
 var router = express.Router();
 
 // Require controller modules.
-//var book_controller = require('../controllers/bookController');
+var department_controller = require('../controllers/departmentController');
 var question_controller = require('../controllers/questionController');
+var faculty_controller = require('../controllers/facultyController');
 //var genre_controller = require('../controllers/genreController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
 
-/// BOOK ROUTES ///
+/// DEPARTMENT ROUTES ///
 
-// GET catalog home page.
-// router.get('/', book_controller.index);
+// GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
+router.get('/department/create', department_controller.department_create_get);
 
-// // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
-// router.get('/book/create', book_controller.book_create_get);
+// POST request for creating Book.
+router.post('/department/create', department_controller.department_create_post);
 
-// // POST request for creating Book.
-// router.post('/book/create', book_controller.book_create_post);
-
-// // GET request to delete Book.
-// router.get('/book/:id/delete', book_controller.book_delete_get);
+// GET request to delete Book.
+router.get('/department/:id/delete', department_controller.department_delete_get);
 
 // // POST request to delete Book.
-// router.post('/book/:id/delete', book_controller.book_delete_post);
+// router.post('/department/:id/delete', department_controller.department_delete_post);
 
-// // GET request to update Book.
-// router.get('/book/:id/update', book_controller.book_update_get);
+// GET request to update Book.
+router.get('/department/:id/update', department_controller.department_update_get);
 
 // // POST request to update Book.
-// router.post('/book/:id/update', book_controller.book_update_post);
+// router.post('/department/:id/update', department_controller.department_update_post);
 
-// // GET request for one Book.
-// router.get('/book/:id', book_controller.book_detail);
+// GET request for one Book.
+router.get('/department/:id', department_controller.department_detail);
 
-// // GET request for list of all Book items.
-// router.get('/books', book_controller.book_list);
+// GET request for list of all department.
+router.get('/department', department_controller.department_list);
 
 /// QUESTION ROUTES ///
 
@@ -70,6 +68,14 @@ router.get('/question/:id', question_controller.question_detail);
 
 // GET request for list of all Authors.
 router.get('/question', question_controller.question_home);
+
+/// FACULTY ROUTES ///
+
+//GET request to register user
+router.get('/register', faculty_controller.faculty_register_get);
+
+//POST request to Pass faculty value
+router.post('/register', faculty_controller.faculty_register_post);
 
 /// GENRE ROUTES ///
 

@@ -4,9 +4,8 @@ var Schema = mongoose.Schema;
 
 var DepartmentSchema = new Schema(
   {
-    department_code:{type:String, required:true, max:10, unique:true},
-    department_name: {type: String, required: true, max: 100},
-    department_description: {type: String, max:100}
+    name: {type: String, required: true, max: 100},
+    description: {type: String, max:100}
   }
 );
 
@@ -21,7 +20,7 @@ DepartmentSchema
 DepartmentSchema
 .virtual('url')
 .get(function () {
-  return '/department/' + this._id;
+  return '/ditu/department/' + this._id;
 });
 
 //Export model
