@@ -1,40 +1,43 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var app = require('../app')
 
 // Require controller modules.
 var department_controller = require('../controllers/departmentController');
 var question_controller = require('../controllers/questionController');
 var faculty_controller = require('../controllers/facultyController');
 
-
-
 //var genre_controller = require('../controllers/genreController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
 
-var a=0;
+var auth_token = 0;
 
 var loggedin  =  function(req,res,next){
     if(req.isAuthenticated()){
-    a = req.isAuthenticated();
+    auth_token = req.isAuthenticated();
      next()
     }else{
-        
         res.redirect('/');
     }
 }
 
-console.log("xxxxxxxxxxxxxxxxxx= "+a)
-
-
 /// HOME ROUTES///
-
-//Home Route
-
-router.get('/home',(req,res)=>{
+// GET home page.
+router.get('/', (req, res)=>{
     res.render('home');
-  });
-  
+    //res.send('NOT IMPLEMENTED: Site Home Page');
+});
+
+//Login Route
+router.get('/login',(req,res)=>{
+    res.render('index');
+});
+
+/// About Route ///
+router.get('/about',(req,res)=>{
+    res.render('about');
+});
 
 /// DEPARTMENT ROUTES ///
 
@@ -63,12 +66,6 @@ router.get('/department/:id',loggedin, department_controller.department_detail);
 router.get('/department',loggedin, department_controller.department_list);
 
 /// QUESTION ROUTES ///
-
-// GET home page.
-router.get('/', exports.index = function(req, res) {
-    res.render('index');
-    //res.send('NOT IMPLEMENTED: Site Home Page');
-});
 
 // GET request for creating Author. NOTE This must come before route for id (i.e. display author).
 router.get('/question/create',loggedin, question_controller.question_create_get);

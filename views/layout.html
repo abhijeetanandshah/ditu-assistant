@@ -47,34 +47,6 @@
                     </a>
                 </div> <!-- end header__logo -->
 
-                <ul class="header__social">
-                    <li>
-                        <a href="https://www.facebook.com/abhijeet.anandshah/"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/nineleaps?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.instagram.com/abhijeet.anandshah/"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                    </li>
-                </ul> <!-- end header__social -->
-
-                <a class="header__search-trigger" href="#0"></a>
-
-                <div class="header__search">
-
-                    <form role="search" method="get" class="header__search-form" action="#">
-                        <label>
-                            <span class="hide-content">Search for:</span>
-                            <input type="search" class="search-field" placeholder="Type Keywords" value="" name="s" title="Search for:" autocomplete="off">
-                        </label>
-                        <input type="submit" class="search-submit" value="Search">
-                    </form>
-
-                    <a href="#0" title="Close Search" class="header__overlay-close">Close</a>
-
-                </div>  <!-- end header__search -->
-
                 <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
 
                 <nav class="header__nav-wrap" style="margin-top: 5px;padding: 5px;">
@@ -83,6 +55,7 @@
 
                     <ul class="header__nav" style="padding:0;margin-top:0px;">
                         <li class="current" style="float:left;"><a href="/" title="">Home</a></li>
+                        <li style="float:left;"><a href="/ditu/about" title="">About</a></li>
                         <!-- <li class="has-children" style="float:left;">
                             <a href="#0" title="">Features</a> 
                             <ul class="sub-menu" style="margin:0px;padding: 2px;">
@@ -91,17 +64,13 @@
                             <li><a href="#">COE</a></li>
                             </ul>
                         </li> -->
-
-                        {% if a %}
-                        <li style="float:left;"><a href="#" title="">Contact</a></li>
+                        {% if auth_token %}
                         <li style="float:left;"><a href="/ditu/question" title="">Question</a></li>
                         <li style="float:left;"><a href="/ditu/department" title="">Department</a></li>    
-                        
                         <li style="float:right;"><a href="/ditu/logout">Logout</a></li>
                         {% else %}
                         <li style="float:right;"><a href="/ditu/register">Register</a></li>
-                        <li style="float:right;"><a href="/ditu">Login</a></li> 
-                         
+                        <li style="float:right;"><a href="/ditu/login">Login</a></li> 
                         {% endif %}
                     
                     </ul> <!-- end header__nav -->
@@ -116,9 +85,7 @@
     <!-- s-content
     ================================================== -->
     <section class="s-content">
-        
-        <!-- <button class="btn--primary" style="width:30%;font-size:13px;display:block; margin-left: auto;margin-right: auto;padding:3px;"><a href="http://0.0.0.0:8000/admin/login/?next=/admin/" style="color:white;">Login</a></button><br/> -->
-        
+                
                 {% block content %}
                 {% endblock %}
                 <!-- end article -->
@@ -129,42 +96,12 @@
     ================================================== -->
     <footer class="s-footer">
 
-        <!-- <div class="s-footer__main">
-            <div class="row">
-                
-                <div class="col-two md-four mob-full s-footer__sitelinks">
-                    <h4>Quick Links</h4>
-                    <ul class="s-footer__linklist">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-
-                </div> end s-footer__sitelinks
-
-
-                <div class="col-five md-full mob-full end s-footer__social">
-                        
-                    <h4>Social</h4>
-
-                    <ul class="s-footer__linklist">
-                        <li><a href="https://www.facebook.com/nineleaps/">Facebook</a></li>
-                        <li><a href="https://www.instagram.com/nineleaps_tech/">Instagram</a></li>
-                        <li><a href="https://twitter.com/nineleaps?lang=en">Twitter</a></li>
-                        <li><a href="https://plus.google.com/+Nineleaps/">Google+</a></li>
-                        <li><a href="https://in.linkedin.com/company/nineleaps-technology-solutions-pvt-ltd-/">LinkedIn</a></li>
-                    </ul>
-
-                </div> end s-footer__social
-
-            </div>
-        </div> end s-footer__main -->
-
         <div class="s-footer__bottom">
             <div class="row">
                 <div class="col-full">
                     <div class="s-footer__copyright">
-                        <span>© Copyright Nineleaps Technologies 2018</span>
-                        <span>Developed By: <a href="https://www.linkedin.com/in/abhijeet-anand-shah-aba29535/">Abhijeet Anand Shah</a></span>
+                        <span>© Copyright Stark Technologies 2018</span>
+                        <span>Developed By: <a href="https://www.linkedin.com/in/abhijeet-anand-shah-aba29535/">Abhijeet Anand Shah</a> | <a href="https://www.linkedin.com/in/aditya-prakash-7826237a/">Aditya Prakash</a> | <a href="#">Gunjan Kumar</a> | <a href="#">Harshit Arora</a></span>
                     </div>
 
                     <div class="go-top">

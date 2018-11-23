@@ -2876,6 +2876,7 @@ html.no-csstransitions .featured {
    padding-left: 1px;
    padding-right: 1px;
    padding-top: 1px;
+   min-height: 350px;
    padding-bottom: 1px;
 }
 
@@ -3268,8 +3269,8 @@ html.no-csstransitions .featured {
  *
  * ------------------------------------------------------------------- */
 footer {
-   padding-top: 10.2rem;
-   padding-bottom: 6rem;
+   padding-top: 4rem;
+   padding-bottom: 2rem;
    font-size: 1.5rem;
    line-height: 2;
    color: rgba(255, 255, 255, 0.4);
@@ -3285,7 +3286,7 @@ footer h4 {
    line-height: 1.286;
    text-transform: uppercase;
    letter-spacing: .25rem;
-   padding-bottom: 4.2rem;
+   padding-bottom: 3rem;
    color: #FFFFFF;
    margin-top: 0;
    position: relative;
@@ -3303,7 +3304,7 @@ footer h4::after {
 }
 
 .s-footer__main {
-   margin-bottom: 3.6rem;
+   margin-bottom: 2rem;
 }
 
 

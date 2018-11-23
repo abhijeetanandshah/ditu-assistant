@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var DepartmentSchema = new Schema(
   {
-    name: {type: String, required: true, max: 100},
-    description: {type: String, max:100}
+    department_name: {type: String, required: true, max: 100},
+    department_description: {type: String, max:100}
   }
 );
 

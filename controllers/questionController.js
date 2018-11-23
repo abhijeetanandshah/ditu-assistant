@@ -9,11 +9,10 @@ var Question = mongoose.model('Question');
 exports.question_home = function(req, res) {
     db.collection('questions').find({}).toArray((err, docs)=>{
         res.render('question',{'error':err,'data':docs.length,
-        a : req.isAuthenticated()
+        auth_token : req.isAuthenticated()
     });
         console.log("No. of questions : "+ docs.length);
-        a = req.isAuthenticated();
-        console.log("aaaaaaaaaaaaaaaa"+a)
+        auth_token = req.isAuthenticated();
     });
 };
 
