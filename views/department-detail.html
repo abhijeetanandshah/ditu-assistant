@@ -9,9 +9,9 @@
         <p>{{ department_detail.department_description }}</p>
 
         <!-- add button later -->
-        <p><a href="/ditu/department/create">Create Department</a></p>
-        <p><a href="{{ department_detail.url }}/delete">Delete Department</a></p>
-        <p><a href="{{ department_detail.url }}/update">Update Department</a></p>
+        
+        <a href="{{ department_detail.url }}/delete" class="btn btn-dark">Delete Department</a>
+        <a href="{{ department_detail.url }}/update" class="btn btn-dark">Update Department</a>
 
     </div>
 </div>

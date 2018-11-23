@@ -32,13 +32,14 @@ exports.department_detail = function(req, res, next) {
             err.status = 404;
             return next(err);
         }
-        res.render('department-detail',{ department_detail : detailDepartment});
+        res.render('department-detail',{ department_detail : detailDepartment,
+            auth_token : req.isAuthenticated()});
     })
 };
 
 // Display department create form on GET.
 exports.department_create_get = function(req, res, next) {
-    res.render('department-form');
+    res.render('department-form',{auth_token : req.isAuthenticated()});
 };
 
 // Handle department create on POST.
