@@ -5,7 +5,7 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #0049FF;
 }
 
 .sidebar-nav {
@@ -48,21 +48,41 @@ div#LoginForm{
 
 .form-heading { color:#fff; font-size:23px;}
 .panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
-.panel p { color:#777777; font-size:13px; margin-bottom:10px; line-height:24px;}
+.panel p { color:#777777; font-size:12px; margin-bottom:10px; line-height:24px;}
 .login-form .form-control {
   background: #f7f7f7 none repeat scroll 0 0;
   border: 1px solid #d4d4d4;
   border-radius: 4px;
   font-size: 14px;
   height: 40px;
+  width: 100%;
   line-height: 40px;
   padding: 5px
 }
 .main-div {
   background: #ffffff none repeat scroll 0 0;
-  border-radius: 2px;
+  border-radius: 5px;
   margin: 25px auto 30px;
   max-width: 30%;
+  padding: 30px 50px 20px 50px;
+}
+
+.form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px
+}
+
+.main-div-question {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 8px;
+  margin: 25px auto 30px;
+  max-width: 55%;
   padding: 30px 50px 20px 50px;
 }
 
@@ -94,6 +114,21 @@ div#LoginForm{
 .back { text-align: left; margin-top:10px;}
 .back a {color: #444444; font-size: 13px;text-decoration: none;}
 
+.panel h1{ color:#444444; font-size:25px; margin:0 0 8px 0;}
+
+.btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 50%;
+  height: 40px;
+  line-height: 38px;
+  padding: 0px;
+  margin:auto;
+  display: block;
+  margin-bottom: 15px;
+}
 
 #expend1 {
   display:none;  

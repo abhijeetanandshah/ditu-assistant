@@ -1,12 +1,15 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>WELCOME to DITU ASSISTANT</h2>
+<h2>WELCOME TO DITU ASSISTANT</h2>
 
+<div style="margin-left: 100px;">
 <ul>
     <li>Questions : {{ data }}</li>
 </ul>
+</div>
 
-<button class="btn btn-primary"><a href="/ditu/question/create" title="">Add Question</a></button>
+<button class="btn btn-primary" onclick="location.href = '/ditu/question/create';">Add Question</a></button>
+<button class="btn btn-primary" onclick="location.href = '/ditu/question/view';">View Question</a></button>
 
 {% endblock %}

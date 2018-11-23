@@ -14,10 +14,9 @@ exports.department_list = function(req, res, next) {
     Department.find({})
     .exec(function(err, listDepartment){
         if(err) {return next(err);}
-        res.render('department',{department_list : listDepartment});
+        res.render('department',{department_list : listDepartment,
+            auth_token : req.isAuthenticated()});
     })
-       
-
 };
 
 // Display detail page for a specific department.
@@ -45,11 +44,11 @@ exports.department_create_get = function(req, res, next) {
 // Handle department create on POST.
 exports.department_create_post = [
     // validating fields
-    body('name', 'Name must be specified').isLength({min: 1 }).trim(),
-    body('description', 'Description must be specified').isLength({min:1}).trim(),
+    body('department_name', 'Name must be specified').isLength({min: 1 }).trim(),
+    body('department_description', 'Description must be specified').isLength({min:1}).trim(),
     // sanitizaion fields
-    sanitizeBody('name').trim().escape(),
-    sanitizeBody('description').trim().escape(),
+    sanitizeBody('department_name').trim().escape(),
+    sanitizeBody('department_description').trim().escape(),
     // Processing request after validation and sanitization
     (req, res, next) => {
         
@@ -58,8 +57,8 @@ exports.department_create_post = [
 
         var department = new Department(
             {
-                name : req.body.name,
-                description : req.body.description
+                department_name : req.body.department_name,
+                department_description : req.body.department_description
             });
 
         if (!errors.isEmpty()) {

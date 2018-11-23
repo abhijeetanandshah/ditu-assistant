@@ -3,12 +3,10 @@
 {% block content %}
 <div class="container">
     <div class="row">
-
         <h2>DEPARTMENTS</h2>
-
         <ul>
             {% for department in department_list %}
-            <li><a href="{{department.url}}"> {{department.name}} </a></li>
+            <li><a href="{{department.url}}"> {{department.department_name}} </a></li>
             {% else %}
             <li><a href="/ditu/department/create">Create Department</a></li>
             {% endfor %}

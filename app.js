@@ -7,6 +7,9 @@ var cons = require('consolidate');
 var logger = require('morgan');
 var mongoose= require('mongoose');
 var bodyParser = require('body-parser');
+const passport = require('passport');
+var methodOverride = require('method-override');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -14,9 +17,23 @@ var dituRouter = require('./routes/ditu');
 
 var app = express();
 
+require('./config/passport.js')(passport);
+
+app.use(methodOverride('_method'))
+
+app.use(session({
+    secret: 'secure',
+    resave: true,
+    saveUninitialized: true,
+}));
+
+//Passport config
+app.use(passport.initialize());
+app.use(passport.session());
+
 //Set up default mongoose connection
-var mongoDB ="mongodb://127.0.0.1:27017/ditu-assistant";
-//  var mongoDB ="mongodb://abhijeet.anand99:ditu2018@ds131753.mlab.com:31753/ditu-assistant";
+// var mongoDB ="mongodb://127.0.0.1:27017/ditu-assistant";
+ var mongoDB ="mongodb://abhijeet.anand99:ditu2018@ds131753.mlab.com:31753/ditu-assistant";
 mongoose.connect(mongoDB, { useNewUrlParser: true });
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
@@ -42,6 +59,8 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ditu', dituRouter);
 
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
     next(createError(404));
@@ -56,6 +75,16 @@ app.use(function(err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
+});
+
+//Global Variables
+app.use(function(req, res, next){
+    if(user){
+    res.locals.user = req.user;
+    }else{
+        res.locals.user =null;  
+    }
+    next();
 });
 
 module.exports = app;
