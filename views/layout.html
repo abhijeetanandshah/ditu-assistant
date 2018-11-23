@@ -83,19 +83,26 @@
 
                     <ul class="header__nav" style="padding:0;margin-top:0px;">
                         <li class="current" style="float:left;"><a href="/" title="">Home</a></li>
-                        <li class="has-children" style="float:left;">
+                        <!-- <li class="has-children" style="float:left;">
                             <a href="#0" title="">Features</a> 
                             <ul class="sub-menu" style="margin:0px;padding: 2px;">
                             <li><a href="#">Faculty</a></li>
                             <li><a href="#">Admin</a></li>
                             <li><a href="#">COE</a></li>
                             </ul>
-                        </li>
+                        </li> -->
+
+                        {% if a %}
                         <li style="float:left;"><a href="#" title="">Contact</a></li>
                         <li style="float:left;"><a href="/ditu/question" title="">Question</a></li>
                         <li style="float:left;"><a href="/ditu/department" title="">Department</a></li>    
-                        <li style="float:right;"><a href="/ditu/register">Register</a></li> 
+                        
                         <li style="float:right;"><a href="/ditu/logout">Logout</a></li>
+                        {% else %}
+                        <li style="float:right;"><a href="/ditu/register">Register</a></li>
+                        <li style="float:right;"><a href="/ditu">Login</a></li> 
+                         
+                        {% endif %}
                     
                     </ul> <!-- end header__nav -->
                     <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
@@ -122,7 +129,7 @@
     ================================================== -->
     <footer class="s-footer">
 
-        <div class="s-footer__main">
+        <!-- <div class="s-footer__main">
             <div class="row">
                 
                 <div class="col-two md-four mob-full s-footer__sitelinks">
@@ -132,7 +139,7 @@
                         <li><a href="#">Contact</a></li>
                     </ul>
 
-                </div> <!-- end s-footer__sitelinks -->
+                </div> end s-footer__sitelinks
 
 
                 <div class="col-five md-full mob-full end s-footer__social">
@@ -147,10 +154,10 @@
                         <li><a href="https://in.linkedin.com/company/nineleaps-technology-solutions-pvt-ltd-/">LinkedIn</a></li>
                     </ul>
 
-                </div> <!-- end s-footer__social -->
+                </div> end s-footer__social
 
             </div>
-        </div> <!-- end s-footer__main -->
+        </div> end s-footer__main -->
 
         <div class="s-footer__bottom">
             <div class="row">

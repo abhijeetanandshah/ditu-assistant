@@ -6,34 +6,61 @@ var passport = require('passport');
 var department_controller = require('../controllers/departmentController');
 var question_controller = require('../controllers/questionController');
 var faculty_controller = require('../controllers/facultyController');
+
+
+
 //var genre_controller = require('../controllers/genreController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
+
+var a=0;
+
+var loggedin  =  function(req,res,next){
+    if(req.isAuthenticated()){
+    a = req.isAuthenticated();
+     next()
+    }else{
+        
+        res.redirect('/');
+    }
+}
+
+console.log("xxxxxxxxxxxxxxxxxx= "+a)
+
+
+/// HOME ROUTES///
+
+//Home Route
+
+router.get('/home',(req,res)=>{
+    res.render('home');
+  });
+  
 
 /// DEPARTMENT ROUTES ///
 
 // GET request for creating a Book. NOTE This must come before routes that display Book (uses id).
-router.get('/department/create', department_controller.department_create_get);
+router.get('/department/create',loggedin, department_controller.department_create_get);
 
 // POST request for creating Book.
 router.post('/department/create', department_controller.department_create_post);
 
 // GET request to delete Book.
-router.get('/department/:id/delete', department_controller.department_delete_get);
+router.get('/department/:id/delete',loggedin, department_controller.department_delete_get);
 
 // // POST request to delete Book.
 // router.post('/department/:id/delete', department_controller.department_delete_post);
 
 // GET request to update Book.
-router.get('/department/:id/update', department_controller.department_update_get);
+router.get('/department/:id/update',loggedin, department_controller.department_update_get);
 
 // // POST request to update Book.
 // router.post('/department/:id/update', department_controller.department_update_post);
 
 // GET request for one Book.
-router.get('/department/:id', department_controller.department_detail);
+router.get('/department/:id',loggedin, department_controller.department_detail);
 
 // GET request for list of all department.
-router.get('/department', department_controller.department_list);
+router.get('/department',loggedin, department_controller.department_list);
 
 /// QUESTION ROUTES ///
 
@@ -44,31 +71,31 @@ router.get('/', exports.index = function(req, res) {
 });
 
 // GET request for creating Author. NOTE This must come before route for id (i.e. display author).
-router.get('/question/create', question_controller.question_create_get);
+router.get('/question/create',loggedin, question_controller.question_create_get);
 
 // GET request for list of all Authors.
-router.get('/question/view', question_controller.question_view_all);
+router.get('/question/view',loggedin, question_controller.question_view_all);
 
 // POST request for creating Author.
 router.post('/question/create', question_controller.question_create_post);
 
 // GET request to delete Author.
-router.get('/question/:id/delete', question_controller.question_delete_get);
+router.get('/question/:id/delete',loggedin, question_controller.question_delete_get);
 
 // POST request to delete Author.
 router.post('/question/:id/delete', question_controller.question_delete_post);
 
 // GET request to update Author.
-router.get('/question/:id/update', question_controller.question_update_get);
+router.get('/question/:id/update',loggedin, question_controller.question_update_get);
 
 // POST request to update Author.
 router.post('/question/:id/update', question_controller.question_update_post);
 
 // GET request for one Author.
-router.get('/question/:id', question_controller.question_detail);
+router.get('/question/:id',loggedin, question_controller.question_detail);
 
 // GET request for list of all Authors.
-router.get('/question', question_controller.question_home);
+router.get('/question',loggedin, question_controller.question_home);
 
 /// FACULTY ROUTES ///
 

@@ -8,8 +8,12 @@ var Question = mongoose.model('Question');
 // Display list of all Questions.
 exports.question_home = function(req, res) {
     db.collection('questions').find({}).toArray((err, docs)=>{
-        res.render('question',{'error':err,'data':docs.length});
+        res.render('question',{'error':err,'data':docs.length,
+        a : req.isAuthenticated()
+    });
         console.log("No. of questions : "+ docs.length);
+        a = req.isAuthenticated();
+        console.log("aaaaaaaaaaaaaaaa"+a)
     });
 };
 
