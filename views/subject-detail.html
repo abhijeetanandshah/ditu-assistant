@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <h2>{{subject_detail.name}}</h2>
+        <!-- formatting required -->
+        <p><b>{{subject_detail.code}}</b></P>
+        <p>    
+            {% for val in subject_detail.department %}
+            {{val.name}}<br> 
+            {% endfor %}
+        </p>
+
+        <!-- add button later -->
+        <p><a href="/ditu/subject/create">Create Subject</a></p>
+        <p><a href="{{subject_detail.url}}/delete">Delete Subject</a></p>
+        <p><a href="{{subject_detail.url}}/update">Update Subject</a></p>
+
+    </div>
+</div>
+
+
+{% endblock %}

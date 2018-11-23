@@ -10,7 +10,7 @@
             {% for department in department_list %}
             <li><a href="{{department.url}}"> {{department.name}} </a></li>
             {% else %}
-            <li>This would display if the 'item' collection were empty</li>
+            <li><a href="/ditu/department/create">Create Department</a></li>
             {% endfor %}
         </ul>
 

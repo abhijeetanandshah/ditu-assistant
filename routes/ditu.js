@@ -2,10 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 // Require controller modules.
+var subject_controller = require('../controllers/subjectController');
 var department_controller = require('../controllers/departmentController');
 var question_controller = require('../controllers/questionController');
 var faculty_controller = require('../controllers/facultyController');
-//var genre_controller = require('../controllers/genreController');
+//var subject_controller s require('../controllers/SubjectController');
 //var book_instance_controller = require('../controllers/bookinstanceController');
 
 /// DEPARTMENT ROUTES ///
@@ -74,31 +75,31 @@ router.get('/register', faculty_controller.faculty_register_get);
 //POST request to Pass faculty value
 router.post('/register', faculty_controller.faculty_register_post);
 
-/// GENRE ROUTES ///
+/// SUBJECT ROUTES ///
 
-// GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
-// router.get('/genre/create', genre_controller.genre_create_get);
+// GET request for creating a subject. NOTE This must come before route that displays subject (uses id).
+router.get('/subject/create', subject_controller.subject_create_get);
 
-// //POST request for creating Genre.
-// router.post('/genre/create', genre_controller.genre_create_post);
+//POST request for creating subject.
+router.post('/subject/create', subject_controller.subject_create_post);
 
-// // GET request to delete Genre.
-// router.get('/genre/:id/delete', genre_controller.genre_delete_get);
+// // GET request to delete subject.
+// router.get('/subject/:id/delete', subject_controller.subject_delete_get);
 
-// // POST request to delete Genre.
-// router.post('/genre/:id/delete', genre_controller.genre_delete_post);
+// // POST request to delete subject.
+// router.post('/subject/:id/delete', subject_controller.subject_delete_post);
 
-// // GET request to update Genre.
-// router.get('/genre/:id/update', genre_controller.genre_update_get);
+// // GET request to update subject.
+// router.get('/subject/:id/update', subject_controller.subject_update_get);
 
-// // POST request to update Genre.
-// router.post('/genre/:id/update', genre_controller.genre_update_post);
+// // POST request to update subject.
+// router.post('/subject/:id/update', subject_controller.subject_update_post);
 
-// // GET request for one Genre.
-// router.get('/genre/:id', genre_controller.genre_detail);
+// GET request for one subject.
+router.get('/subject/:id', subject_controller.subject_detail);
 
-// // GET request for list of all Genre.
-// router.get('/genres', genre_controller.genre_list);
+// GET request for list of all subject.
+router.get('/subject', subject_controller.subject_list);
 
 // /// BOOKINSTANCE ROUTES ///
 

@@ -29,7 +29,7 @@ exports.department_detail = function(req, res, next) {
         // no result
         if (detailDepartment==null)
         {   
-            var err = new Error('Genre Not Found');
+            var err = new Error(' Not Found');
             err.status = 404;
             return next(err);
         }
@@ -63,6 +63,7 @@ exports.department_create_post = [
             });
 
         if (!errors.isEmpty()) {
+            // Runs only when there is error in form validation
 
             res.render('department-form', { department_detail: detailDepartment, errors: errors.array() });
         
