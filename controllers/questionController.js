@@ -18,7 +18,8 @@ exports.question_home = function(req, res) {
 
 exports.question_view_all = function(req, res) {
     db.collection('questions').find({}).toArray((err, docs)=>{
-        res.render('question-all',{'error':err,'data':docs});
+        res.render('question-all',{'error':err,'data':docs,
+        auth_token : req.isAuthenticated()});
     });
 };
 
@@ -30,7 +31,8 @@ exports.question_detail = function(req, res) {
 // Display Question create form on GET.
 exports.question_create_get = function(req, res) {
     db.collection('subjects').find({}).toArray((err,docs)=>{
-        res.render('add-question',{'subjects':docs});
+        res.render('add-question',{'subjects':docs,
+        auth_token : req.isAuthenticated()});
         console.log("Subject Count : "+ docs);
     });
 };
