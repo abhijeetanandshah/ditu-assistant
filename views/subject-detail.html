@@ -4,12 +4,12 @@
 <div class="container">
     <div class="row">
 
-        <h2>{{subject_detail.name}}</h2>
+        <h2>{{subject_detail.subject_name}}</h2>
         <!-- formatting required -->
-        <p><b>{{subject_detail.code}}</b></P>
+        <p><b>{{subject_detail.subject_code}}</b></P>
         <p>    
             {% for val in subject_detail.department %}
-            {{val.name}}<br> 
+            {{val.subject_name}}<br> 
             {% endfor %}
         </p>
 

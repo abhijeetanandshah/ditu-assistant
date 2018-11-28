@@ -13,7 +13,7 @@ var DepartmentSchema = new Schema(
 DepartmentSchema
 .virtual('departmentDetails')
 .get(function () {
-  return ('Department Code:'+this._id + ' Department Name:' + this.department_name + ' Department Description:' + this.department_description);
+  return ('Department Name:' + this.department_name + ' Department Description:' + this.department_description);
 });
 
 // Virtual for Department's URL

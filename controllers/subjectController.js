@@ -11,13 +11,10 @@ exports.subject_list = function(req, res, next) {
         if(err) {return next(err);}
         res.render('subject',{subject_list : listSubject});
     })
-       
-
 };
 
 // Display detail page for a specific subject.
 exports.subject_detail = function(req, res, next) {
-    // * //
     Subject.findById(req.params.id)
     .populate('department')
     .exec(function(err, detailSubject){
@@ -55,8 +52,8 @@ exports.subject_create_post =[
         next();
     },
     // validating fields
-    body('code', 'Subject Code must be specified').isLength({min:1, max:7}).trim(),
-    body('name', 'Name must be speciified').isLength({ min:1 }).trim(),
+    body('subject_code', 'Subject Code must be specified').isLength({min:1, max:7}).trim(),
+    body('subject_name', 'Name must be speciified').isLength({ min:1 }).trim(),
 
     // sanitising fields using wildcard
     body('*').trim().escape(),
@@ -68,8 +65,8 @@ exports.subject_create_post =[
         // Create a Subject object from processed data
         var subject = new Subject(
             {
-                code : req.body.code,
-                name : req.body.name,
+                subject_code : req.body.subject_code,
+                subject_name : req.body.subject_name,
                 department : req.body.department,
                 
             });
@@ -78,8 +75,8 @@ exports.subject_create_post =[
         if (!errors.isEmpty()) {
             Department.find()
             .exec(function(err, listDepartment){
-                if (err) {return next(err); }
-               
+                if (err) {return next(err); 
+                }
                 res.render('subject-form', {department_list : listDepartment, errors: errors.array()});
             })
             // Add code to render the form with the user input
@@ -96,5 +93,4 @@ exports.subject_create_post =[
             });
         }
     }
-
 ];

@@ -3,37 +3,33 @@
 {% block content %}
 <div class="container">
     <div class="row">
-
         <form action="" method="POST" class="col-sm">
             <div class="form-group">
-                <label for="code">Code</label>
-                <input name="code" type="text" placeholder="Subject code" required="true">
+                <label for="subject_code">Subject Code</label>
+                <input name="subject_code" type="text" placeholder="Subject Code" required="true">
             </div>
             <div class="form-group">
-                <label for="name">Name</label>
-                <input name="name" type="text" placeholder="About department" required="true">
-
+                <label for="subject_name">Subject Name</label>
+                <input name="subject_name" type="text" placeholder="Subject Name" required="true">
             </div>
             <p> Department </p>
             {% for department in department_list%}
             <div class="form-group">
-                <label for="{{department._id}}">{{department.name}}</label>
-                <input id="{{department._id}}" name="department" value="{{department._id}}" type="checkbox" >
+                <label for="{{department._id}}">{{department.department_name}}</label>
+                <input id="{{department._id}}" name="department" value="{{department._id}}" type="checkbox">
             </div>
             {% endfor %}
             <input type="submit" value="submit" name="submit" class="btn btn-primary">
         </form>
-
-        {% if errors%}
+        {% if errors %}
         <ul>
-            {% for error in errors%}
+            {% for error in errors %}
             <li>{{error}}</li>
             {% else %}
             <li>This would display if the 'item' collection were empty</li>
             {% endfor %}
         </ul>
         {% endif %}
-
     </div>
 </div>
 {% endblock %}

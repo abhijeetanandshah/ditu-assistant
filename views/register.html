@@ -5,9 +5,7 @@
 
 <div class="container" style="display: inline;">
     <div class="main-div-question">
-<div class="row">
-    <!-- <div class="col-md-6 mx-auto"> -->
-        <!-- <div class="card card-body"> -->
+        <div class="row">
             <h3 class="text-center"></h3>Faculty Registration</h3>
             <form action="" method="post">
                 <div class="form-group">
@@ -34,19 +32,33 @@
                     <label for="department">Department</label>
                     <input type="text" name="department" id="department" class="form-control" value="CSE" required>
                 </div> -->
+                <!-- Department :
+                {% for department in department_list %}
                 <div class="form-group">
+                    <label for="department"><input id="department" name="department" value="{{ department._id }}" type="checkbox"
+                            required>{{ department.department_name }}</label>
+                </div>
+                {% else %}
+                <p>No Dept Added</p>
+                {% endfor %} -->
+                Subject :
+                {% for subject in subjects %}
+                <div class="form-group">
+                    <label for="subject"><input id="subject" name="subjects" value="{{ subject._id }}" type="checkbox">{{ subject.subject_name }}</label>
+                </div>
+                {% endfor %}
+                <!-- <div class="form-group">
                     <select name="subjects">
                         {% for subject in subjects %}
                         <option value="{{ subject._id }}">{{ subject.subject_name }}</option>
                         {% endfor %}
                     </select>
-                </div>
+                </div> -->
                 <button type="submit" class="btn btn-primary">Register</button>
             </form>
-        <!-- </div> -->
-    <!-- </div> -->
+        </div>
+    </div>
 </div>
-    </div></div>
 
 
 {% endblock %}

@@ -4,8 +4,8 @@ var Schema = mongoose.Schema;
 
 var SubjectSchema = new Schema(
   {
-    code:{type:String, required:true, max:10, unique:true},
-    name: {type: String, required: true, max: 100},
+    subject_code:{type:String, required:true, max:10, unique:true},
+    subject_name: {type: String, required: true, max: 100},
     department : [{type:Schema.Types.ObjectId, ref:'Department', required: true}]
   }
 );
@@ -15,7 +15,7 @@ var SubjectSchema = new Schema(
 SubjectSchema
 .virtual('subjectDetails')
 .get(function () {
-  return ('Subject Code:'+this.subject_code + ' Subject Name:' + this.subject_name + ' Departments:'+ this.department.get('dept_name'));
+  return ('Subject Code:'+this.subject_code + ' Subject Name:' + this.subject_name + ' Departments:'+ this.department.get('department_name'));
 });
 
 // Virtual for Subject's URL

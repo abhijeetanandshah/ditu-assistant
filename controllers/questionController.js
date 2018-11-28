@@ -9,17 +9,14 @@ var Question = mongoose.model('Question');
 exports.question_home = function(req, res) {
     db.collection('questions').find({}).toArray((err, docs)=>{
         res.render('question',{'error':err,'data':docs.length,
-        auth_token : req.isAuthenticated()
-    });
-        console.log("No. of questions : "+ docs.length);
-        auth_token = req.isAuthenticated();
+        auth_token : req.isAuthenticated(), 'user' : req.user });
     });
 };
 
 exports.question_view_all = function(req, res) {
     db.collection('questions').find({}).toArray((err, docs)=>{
         res.render('question-all',{'error':err,'data':docs,
-        auth_token : req.isAuthenticated()});
+        auth_token : req.isAuthenticated() });
     });
 };
 

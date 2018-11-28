@@ -39,6 +39,9 @@
     ================================================== -->
     <section class="s-pageheader s-pageheader--home" style="min-height:190px;padding-top:20px">
         <header class="header" style="top:2px;">
+            {% if auth_token %}
+            <p style="float:right; margin-right: 50px;">Welcome ! {{ user.fullname }}</p>
+            {% endif %}
             <div class="header__content row">
 
                 <div class="header__logo">

@@ -16,7 +16,7 @@ var auth_token = 0;
 var loggedin  =  function(req,res,next){
     if(req.isAuthenticated()){
     auth_token = req.isAuthenticated();
-     next()
+     next();
     }else{
         res.redirect('/');
     }
