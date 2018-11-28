@@ -31,6 +31,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use(function(req, res, next) {
+    res.locals.user = req.user || null;
+    next();
+});
+
 //Set up default mongoose connection
 // var mongoDB ="mongodb://127.0.0.1:27017/test";
 var mongoDB = "mongodb://abhijeet.anand99:ditu2018@ds131753.mlab.com:31753/ditu-assistant";
@@ -59,8 +64,6 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/ditu', dituRouter);
 
-
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
     next(createError(404));
@@ -75,16 +78,6 @@ app.use(function (err, req, res, next) {
     // render the error page
     res.status(err.status || 500);
     res.render('error');
-});
-
-//Global Variables
-app.use(function (req, res, next) {
-    if (user) {
-        res.locals.user = req.user;
-    } else {
-        res.locals.user = null;
-    }
-    next();
 });
 
 module.exports = app;

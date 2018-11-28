@@ -1,64 +1,42 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<h2>Registration</h2>
 
 <div class="container" style="display: inline;">
     <div class="main-div-question">
+        <div class="panel">
+            <h1>Faculty Registration</h1>
+        </div>
         <div class="row">
-            <h3 class="text-center"></h3>Faculty Registration</h3>
             <form action="" method="post">
-                <div class="form-group">
-                    <label for="sap_id">SAP ID</label>
-                    <input type="text" name="sap_id" id="sap_id" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" name="first_name" id="first_name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" name="last_name" id="last_name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="date_of_birth">Date of Birth</label>
-                    <input type="date" name="date_of_birth" id="date_of_birth" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" id="password" class="form-control" required>
-                </div>
-                <!-- <div class="form-group">
-                    <label for="department">Department</label>
-                    <input type="text" name="department" id="department" class="form-control" value="CSE" required>
-                </div> -->
-                <!-- Department :
-                {% for department in department_list %}
-                <div class="form-group">
-                    <label for="department"><input id="department" name="department" value="{{ department._id }}" type="checkbox"
-                            required>{{ department.department_name }}</label>
-                </div>
-                {% else %}
-                <p>No Dept Added</p>
-                {% endfor %} -->
-                Subject :
-                {% for subject in subjects %}
-                <div class="form-group">
-                    <label for="subject"><input id="subject" name="subjects" value="{{ subject._id }}" type="checkbox">{{ subject.subject_name }}</label>
-                </div>
-                {% endfor %}
-                <!-- <div class="form-group">
-                    <select name="subjects">
-                        {% for subject in subjects %}
-                        <option value="{{ subject._id }}">{{ subject.subject_name }}</option>
-                        {% endfor %}
-                    </select>
-                </div> -->
-                <button type="submit" class="btn btn-primary">Register</button>
+                <fieldset>
+                    SAP ID : <input type="text" name="sap_id" class="form-control" required>
+                    First Name : <input type="text" name="first_name" class="form-control" required>
+                    Last Name : <input type="text" name="last_name" class="form-control" required>
+                    Date of Birth : <input type="date" name="date_of_birth" class="form-control" required>
+                    Password : <input type="password" name="password" class="form-control" required>
+                    <!-- Department : <input type="text" name="department" class="form-control" value="CSE" required> -->
+                    <!-- Department :
+                    {% for department in department_list %}
+                    <div class="form-group">
+                        <label for="department"><input id="department" name="department" value="{{ department._id }}" type="checkbox"
+                                required>{{ department.department_name }}</label>
+                    </div>
+                    {% else %}
+                    <p>No Dept Added</p>
+                    {% endfor %} -->
+                    Subject :<br/>
+                    {% for subject in subjects %}
+                    <input name="subjects" value="{{ subject._id }}" type="checkbox">
+                    {{ subject.subject_name }}<br/>
+                    {% else %}
+                    <p>No Dept Added</p>
+                    {% endfor %}
+                    <br/>
+                    <button type="submit" class="btn btn-primary" value="Submit">Register</button>
+                </fieldset>
             </form>
         </div>
     </div>
 </div>
-
-
 {% endblock %}

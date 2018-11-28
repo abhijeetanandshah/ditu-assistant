@@ -656,8 +656,8 @@ input[type="password"],
 textarea,
 select {
    display: block;
-   height: 6rem;
-   padding: 1.5rem 0;
+   height: 3rem;
+   padding: 2rem 1rem;
    border: 0;
    outline: none;
    color: #151515;
