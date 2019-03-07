@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h2>WELCOME TO DITU ASSISTANT</h2>
+
+<div style="margin-left: 100px;">
+<ul>
+    <li>Total Questions : {{ data }}</li>
+</ul>
+</div>
+
+<button class="btn btn-primary" onclick="location.href = '/ditu/question/create';">Add Question</a></button><br/>
+<button class="btn btn-primary" onclick="location.href = '/ditu/question/view';">View Question</a></button><br/>
+<button class="btn btn-primary" onclick="location.href = '/ditu/question/paper';">Generate Question Paper</a></button><br/>
+
+
+{% endblock %}

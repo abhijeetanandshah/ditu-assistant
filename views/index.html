@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div id="LoginForm">
+    
+    <h2 style="text-align: center;">WELCOME TO DITU ASSISTANT</h2>
+    
+    <div class="container">
+        <div class="login-form">
+            <div class="main-div" style="float:left;">
+                <div class="panel">
+                    <h2>Admin Login</h2>
+                    <p>Please Enter your SAP ID and Password</p>
+                </div>
+                <div class="service-1 click1">
+                    <div class="row">
+                    <input type="checkbox" id="expend1" />
+                    <div class="medium-12 small-12 columns smalldesc">
+                        <form id="AdminLogin">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="inputAdminEmail" placeholder="SAP ID">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="inputAdminPassword" placeholder="Password">
+                            </div>
+                            <div class="forgot">
+                                <a href="reset.html">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                    <label for="expend1" style="margin-top: 5px;"><img src="/images/icons/png/icon-arrow-down.png" width="20px"></label>
+            </div></div></div>
+            <div class="main-div" style="display: inline-block;">
+                <div class="panel">
+                    <h2>Faculty Login</h2>
+                    <p>Please Enter your SAP ID and Password</p>
+                </div>
+                <div class="service-1 click1">
+                    <div class="row">
+                    <input type="checkbox" id="expend2" />
+                    <div class="medium-12 small-12 columns smalldesc">
+                        <form id="FacultyLogin" action="/ditu/login" method="post">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="inputFacultySAPID" name="sap_id" placeholder="SAP ID">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="inputFacultyPassword" name="password"placeholder="Password">
+                            </div>
+                            <div class="forgot">
+                                <a href="reset.html">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                    <label for="expend2" style="margin-top: 5px;"><img src="/images/icons/png/icon-arrow-down.png" width="20px"></label>
+            </div></div></div>
+            <div class="main-div" style="float: right;">
+                <div class="panel">
+                    <h2>COE Login</h2>
+                    <p>Please Enter your SAP ID and Password</p>
+                </div>
+                <div class="service-1 click1">
+                    <div class="row">
+                    <input type="checkbox" id="expend3" />
+                    <div class="medium-12 small-12 columns smalldesc">
+                        <form id="COELogin">
+                            <div class="form-group">
+                                <input type="number" class="form-control" id="inputCOEEmail" placeholder="SAP ID">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" id="inputCOEPassword" placeholder="Password">
+                            </div>
+                            <div class="forgot">
+                                <a href="reset.html">Forgot password?</a>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </form>
+                    </div>
+                    <label for="expend3" style="margin-top: 5px;"><img src="/images/icons/png/icon-arrow-down.png" width="20px"></label>
+            </div></div></div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

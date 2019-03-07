@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="container" style="display: inline;">
+    <div class="main-div-question">
+        <div class="panel">
+            <h1>Faculty Registration</h1>
+        </div>
+        <div class="row">
+            <form action="" method="post">
+                <fieldset>
+                    SAP ID : <input type="text" name="sap_id" class="form-control" required>
+                    First Name : <input type="text" name="first_name" class="form-control" required>
+                    Last Name : <input type="text" name="last_name" class="form-control" required>
+                    Date of Birth : <input type="date" name="date_of_birth" class="form-control" required>
+                    Password : <input type="password" name="password" class="form-control" required>
+                    <!-- Department : <input type="text" name="department" class="form-control" value="CSE" required> -->
+                    <!-- Department :
+                    {% for department in department_list %}
+                    <div class="form-group">
+                        <label for="department"><input id="department" name="department" value="{{ department._id }}" type="checkbox"
+                                required>{{ department.department_name }}</label>
+                    </div>
+                    {% else %}
+                    <p>No Dept Added</p>
+                    {% endfor %} -->
+                    Subject :<br/>
+                    {% for subject in subjects %}
+                    <input name="subjects" value="{{ subject._id }}" type="checkbox">
+                    {{ subject.subject_name }}<br/>
+                    {% else %}
+                    <p>No Dept Added</p>
+                    {% endfor %}
+                    <br/>
+                    <button type="submit" class="btn btn-primary" value="Submit">Register</button>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

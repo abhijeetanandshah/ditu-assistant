@@ -1,0 +1,183 @@
+body {
+  padding: 15px;
+  background-color: #e9e9e9;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #0049FF;
+}
+
+.sidebar-nav {
+  margin-top: 20px;
+  padding: 0;
+  list-style: none;
+}
+
+.page-header {
+  background-color: #131212;
+  margin-top: 0;
+  padding: 10px 10px 10px 10px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active{
+  color: #ffffff;
+  font-size: 30pt;
+  text-decoration: none;
+}
+
+.page-header h1 a span:hover{
+  font-size:32pt;
+}
+
+.content {
+  margin-left: 40px;
+}
+
+h1, h2, h3, h4 {
+  text-align: center;
+  font-family: 'Cambria', cursive;
+}
+
+div#LoginForm{ 
+  background-image:url("https://hdwallsource.com/img/2014/10/blurred-wallpaper-36377-37205-hd-wallpapers.jpg");
+  background-repeat:no-repeat;
+  background-position:center; 
+  background-size:cover; 
+  padding:10px;}
+
+.form-heading { color:#fff; font-size:23px;}
+.panel h2{ color:#444444; font-size:18px; margin:0 0 8px 0;}
+.panel p { color:#777777; font-size:12px; margin-bottom:10px; line-height:24px;}
+.login-form .form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 40px;
+  width: 100%;
+  line-height: 40px;
+  padding: 5px
+}
+.main-div {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 5px;
+  margin: 25px auto 30px;
+  max-width: 30%;
+  padding: 30px 50px 20px 50px;
+}
+
+.form-control {
+  background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 13px;
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px
+}
+
+.main-div-question {
+  background: #ffffff none repeat scroll 0 0;
+  border-radius: 8px;
+  margin: 25px auto 30px;
+  max-width: 55%;
+  padding: 30px 50px 20px 50px;
+}
+
+.login-form .form-group {
+  margin-bottom:2px;
+}
+.login-form{ text-align:center;}
+.forgot a {
+  color: #777777;
+  font-size: 14px;
+  text-decoration: underline;
+}
+.login-form  .btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 100%;
+  height: 40px;
+  line-height: 38px;
+  padding: 0px;
+}
+.forgot {
+  text-align: left; margin-bottom:15px;
+}
+.login-form .btn.btn-primary.reset {
+  background: #ff9900 none repeat scroll 0 0;
+}
+.back { text-align: left; margin-top:10px;}
+.back a {color: #444444; font-size: 13px;text-decoration: none;}
+
+.panel h1{ color:#444444; font-size:25px; margin:0 0 8px 0;}
+
+.btn.btn-primary {
+  background: #f0ad4e none repeat scroll 0 0;
+  border-color: #f0ad4e;
+  color: #ffffff;
+  font-size: 14px;
+  width: 50%;
+  height: 40px;
+  line-height: 38px;
+  padding: 0px;
+  margin:auto;
+  display: block;
+  margin-bottom: 15px;
+}
+
+#expend1 {
+  display:none;  
+}
+
+#expend1 + .smalldesc {
+  max-height:52px;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+#expend1:checked + .smalldesc {
+  max-height:250px;  
+}
+
+#expend2 {
+  display:none;  
+}
+
+#expend2 + .smalldesc {
+  max-height:52px;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+#expend2:checked + .smalldesc {
+  max-height:250px;  
+}
+
+#expend3 {
+  display:none;  
+}
+
+#expend3 + .smalldesc {
+  max-height:52px;
+  overflow:hidden;
+  transition:all .3s ease;
+}
+
+#expend3:checked + .smalldesc {
+  max-height:250px;  
+}
+
+label {
+  color:blue;
+  text-decoration:underline;
+  cursor:pointer;
+}
+
+label:hover {
+  text-decoration:none;  
+}

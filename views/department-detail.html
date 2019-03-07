@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+
+        <h2>{{ department_detail.department_name }}</h2>
+        <!-- formatting required -->
+        <p>{{ department_detail.department_description }}</p>
+
+        <!-- add button later -->
+        
+        <a href="{{ department_detail.url }}/delete" class="btn btn-dark">Delete Department</a>
+        <a href="{{ department_detail.url }}/update" class="btn btn-dark">Update Department</a>
+
+    </div>
+</div>
+
+
+{% endblock %}

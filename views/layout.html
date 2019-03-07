@@ -1,0 +1,140 @@
+<html class="no-js" lang="en">
+<head>
+
+    <!--- basic page needs
+    ================================================== -->
+    <meta charset="utf-8">
+    <title>DITU ASSISTANT</title>
+    <meta name="description" content="Question Paper Builder">
+    <meta name="author" content="Abhijeet Anand Shah">
+
+    <!-- mobile specific metas
+    ================================================== -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" type="text/css">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/vendor.css">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    
+
+    <!-- script
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.ckeditor.com/4.11.1/standard/ckeditor.js"></script>
+    <script src="/javascripts/modernizr.js"></script>
+    <script src="/javascripts/pace.min.js"></script>
+
+</head>
+
+<body id="top">
+
+    <!-- pageheader
+    ================================================== -->
+    <section class="s-pageheader s-pageheader--home" style="min-height:190px;padding-top:20px">
+        <header class="header" style="top:2px;">
+            {% if auth_token %}
+            <p style="float:right; margin-right: 50px;">Welcome ! {{ user.fullname }}</p>
+            {% endif %}
+            <div class="header__content row">
+
+                <div class="header__logo">
+                    <a class="logo" href="/ditu" style="text-decoration-line: none;">
+                        <h1 style="color:white;"><img src="https://www.static-contents.youth4work.com/university/Documents/Colleges/CollegeBanner/fc661c16-4c5e-49e0-92b7-9ae2be372a6c.png" alt="Homepage" style="height:8%;width:8%;"> DITU ASSISTANT</h1>
+                    </a>
+                </div> <!-- end header__logo -->
+
+                <a class="header__toggle-menu" href="#0" title="Menu"><span>Menu</span></a>
+
+                <nav class="header__nav-wrap" style="margin-top: 5px;padding: 5px;">
+
+                    <h2 class="header__nav-heading h6">Site Navigation</h2>
+
+                    <ul class="header__nav" style="padding:0;margin-top:0px;">
+                        <li class="current" style="float:left;"><a href="/" title="">Home</a></li>
+                        <li style="float:left;"><a href="/ditu/about" title="">About</a></li>
+                        <!-- <li class="has-children" style="float:left;">
+                            <a href="#0" title="">Features</a> 
+                            <ul class="sub-menu" style="margin:0px;padding: 2px;">
+                            <li><a href="#">Faculty</a></li>
+                            <li><a href="#">Admin</a></li>
+                            <li><a href="#">COE</a></li>
+                            </ul>
+                        </li> -->
+                        {% if auth_token %}
+                        <li style="float:left;"><a href="/ditu/question" title="">Question</a></li>
+                        <li style="float:left;"><a href="/ditu/department" title="">Department</a></li>    
+                        <li style="float:right;"><a href="/ditu/logout">Logout</a></li>
+                        {% else %}
+                        <li style="float:right;"><a href="/ditu/register">Register</a></li>
+                        <li style="float:right;"><a href="/ditu/login">Login</a></li> 
+                        {% endif %}
+                    
+                    </ul> <!-- end header__nav -->
+                    <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">Close</a>
+                </nav> <!-- end header__nav-wrap -->
+
+            </div> <!-- header-content -->
+        </header> <!-- header -->
+    </section> <!-- end s-pageheader -->
+
+
+    <!-- s-content
+    ================================================== -->
+    <section class="s-content">
+                
+                {% block content %}
+                {% endblock %}
+                <!-- end article -->
+        
+    </section> <!-- s-content -->
+
+    <!-- s-footer
+    ================================================== -->
+    <footer class="s-footer">
+
+        <div class="s-footer__bottom">
+            <div class="row">
+                <div class="col-full">
+                    <div class="s-footer__copyright">
+                        <span>© Copyright Stark Technologies 2018</span>
+                        <span>Developed By: <a href="https://www.linkedin.com/in/aditya-prakash-7826237a/">Aditya Prakash</a> | <a href="#">Harshit Arora</a></span>
+                    </div>
+
+                    <div class="go-top">
+                        <a class="smoothscroll" title="Back to Top" href="#top"></a>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- end s-footer__bottom -->
+
+    </footer> <!-- end s-footer -->
+
+    <!-- preloader
+    ================================================== -->
+    <div id="preloader">
+        <div id="loader">
+            <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Java Script
+    ================================================== -->
+    <script src="/javascripts/jquery-3.2.1.min.js"></script>
+    <script src="/javascripts/plugins.js"></script>
+    <script src="/javascripts/main.js"></script>
+
+</body>
+</html>
