@@ -4,6 +4,7 @@ var mongoose= require('mongoose');
 var async = require('async');
 var db = mongoose.connection;
 var Question = mongoose.model('Question');
+ObjectID = require('mongodb').ObjectID;
 
 // Display list of all Questions.
 exports.question_home = function(req, res) {
@@ -31,6 +32,27 @@ exports.question_create_get = function(req, res) {
         res.render('add-question',{'subjects':docs,
         auth_token : req.isAuthenticated()});
         console.log("Subject Count : "+ docs);
+    });
+};
+
+exports.question_paper_get = function(req, res) {
+    db.collection('questions').find({}).toArray((err, docs)=>{
+        res.render('question-paper',{'error':err,'data':docs,
+        auth_token : req.isAuthenticated() });
+    });
+};
+
+exports.question_paper_post = function(req, res){
+    var bhejo = JSON.parse(JSON.stringify(req.body.questions));
+
+    var id = [];
+    for(var i=0;i<bhejo.length;i++){
+        id.push(mongoose.Types.ObjectId(bhejo[i].toString('hex')));
+    }
+    
+    db.collection('questions').find({"_id" : {"$in" : id}}).toArray((err,docs)=>{
+        //console.log(docs);
+        res.render('temp',{'questions': docs, 'error':err, auth_token : req.isAuthenticated() });
     });
 };
 

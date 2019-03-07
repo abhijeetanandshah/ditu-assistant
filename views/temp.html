@@ -1,0 +1,61 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+
+<html>
+    <div id = "printableArea">
+    <div style="width:8.27in;height:11.69in;border-style: outset;border-width: 2px;margin: 30px;">
+        <div style="margin:30px;">
+        <head>
+            <title>Question Paper</title>
+            <p style="float:left;">Paper Code : XY1234</p>
+            <p style="float: right;">Printed Page 1 of 1</p><br/><br/>
+            <h4 style="text-align: center;">DIT UNIVERSITY, DEHRADUN</h4>
+            <h4 style="text-align: center;">B.TECH (CSE,IT) END TERM EVEN SEM 2018-19(SEM VIII)</h4>
+            <h5 style="text-align: center;">Roll No.<table border = "1" style="display: inline;">
+                    <tr>
+                         <td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td><td width="10%"></td>
+                    </tr>
+                 </table></h5>
+            <p style="float:left;">Time : 2 Hours</p>
+            <p style="float:right;">Total Marks : 50</p><br/>
+            <h6>_________________________________________________________________</h6>
+            
+            
+
+        </head>
+        <body>
+            <br/><br/>
+            <script>
+                count=1</script>
+                {% for a in questions %}
+                <script>
+                        document.write("Ques"+count);
+                        count++;
+                        </script>
+                {{ a.question_text }}</br>
+                {% endfor %}
+
+        </body>
+    </div> 
+    </div>
+</div>
+<input class="btn btn-primary" type="button" onclick="printDiv('printableArea')" value="Print Question Paper" />
+</html>
+<script>function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+   
+        document.body.innerHTML = printContents;
+   
+        window.print();
+   
+        document.body.innerHTML = originalContents;
+   }
+   
+   
+   </script>
+
+
+{% endblock %}

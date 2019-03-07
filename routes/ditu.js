@@ -76,6 +76,14 @@ router.get('/question/view',loggedin, question_controller.question_view_all);
 // POST request for creating Author.
 router.post('/question/create', question_controller.question_create_post);
 
+//ADI
+//GET request to generate question paper
+router.get('/question/paper', question_controller.question_paper_get);
+
+//POST request to generate question paper
+router.post('/question/paper', question_controller.question_paper_post);
+
+
 // GET request to delete Author.
 router.get('/question/:id/delete',loggedin, question_controller.question_delete_get);
 
