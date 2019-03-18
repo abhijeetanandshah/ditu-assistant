@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<form action="" method="post">
+
+<div style="margin-left: 25px;">
+
+    {% for subject in data %}
+    <input name="subject" value="{{ subject.subject_code }}" type="radio" id="{{ subject._id }}">
+    {{ subject.subject_name }}<br/>
+    {% endfor %}
+
+</div>
+
+<button type="submit" class="btn btn-primary" value="Submit">Next</button>
+</form>
+
+
+{% endblock %}
