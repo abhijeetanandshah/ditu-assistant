@@ -52,7 +52,21 @@ exports.question_paper_post = function(req, res){
     
     db.collection('questions').find({"_id" : {"$in" : id}}).toArray((err,docs)=>{
         //console.log(docs);
-        res.render('temp',{'questions': docs, 'error':err, auth_token : req.isAuthenticated() });
+        res.render('temp',{'questions': docs, 'error':err, auth_token : req.isAuthenticated(),'subject':req.body.subject });
+    });
+};
+
+exports.question_paper_subject_get = function(req, res){
+    db.collection('subjects').find({}).toArray((err,docs)=>{
+        res.render('question-paper-subject',{'error':err,'data':docs,auth_token : req.isAuthenticated()});
+    });
+};
+
+exports.question_paper_subject_post = function(req, res){
+    console.log(req.body.subject);
+    db.collection('questions').find({}).toArray((err,docs)=>{
+        res.render('question-paper',{'error':err,'data':docs,'subject':req.body.subject,
+        auth_token : req.isAuthenticated() });
     });
 };
 

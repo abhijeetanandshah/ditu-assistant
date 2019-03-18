@@ -2,17 +2,21 @@
 
 {% block content %}
 
-<form action="" method="post">
+<form action="/ditu/question/paper" method="post">
 
 <div style="margin-left: 15px;">
+
+
     <h2>Questions</h2>
 
     <h4 style="text-align: left;">2.5 marks :</h4>
     <ul>
     {% for question in data %}
     {% if question.marks_tag==2.5 %}
+    {% if question.subject==subject %}
     <input name="questions" value="{{ question._id }}" type="checkbox" id="{{ question._id }}">
     {{ question.question_text }}<br/>
+    {% endif %}
     {% endif %}
     {% endfor %}
     </ul>
@@ -20,8 +24,10 @@
     <ul>
         {% for question in data %}
         {% if question.marks_tag==5 %}
+        {% if question.subject==subject %}
         <input name="questions" value="{{ question._id }}" type="checkbox" id="{{ question._id }}">
     {{ question.question_text }}<br/>
+        {% endif %}
         {% endif %}
         {% endfor %}
     </ul>
@@ -29,12 +35,15 @@
     <ul>
         {% for question in data %}
         {% if question.marks_tag==10 %}
+        {% if question.subject==subject %}
         <input name="questions" value="{{ question._id }}" type="checkbox" id="{{ question._id }}">
     {{ question.question_text }}<br/>
+        {% endif %}
         {% endif %}
         {% endfor %}
     </ul>
 </div>
+<input type="hidden" name="subject" value="{{ subject }}" />
 
 <button type="submit" class="btn btn-primary" value="Submit">Generate Question Paper</button>
 

@@ -83,6 +83,10 @@ router.get('/question/paper', question_controller.question_paper_get);
 //POST request to generate question paper
 router.post('/question/paper', question_controller.question_paper_post);
 
+router.get('/question/paper/subject', question_controller.question_paper_subject_get);
+
+router.post('/question/paper/subject',question_controller.question_paper_subject_post);
+
 
 // GET request to delete Author.
 router.get('/question/:id/delete',loggedin, question_controller.question_delete_get);
